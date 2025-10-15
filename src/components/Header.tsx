@@ -10,116 +10,103 @@ const Header = () => {
   }
 
   return (
-    <header className="bg-white shadow-lg fixed w-full top-0 z-50">
+    <header className="bg-cream-200 fixed w-full top-0 z-50 border-b-2 border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="bg-primary-500 p-2 rounded-lg">
-                <span className="text-white font-bold text-xl">HC</span>
-              </div>
-              <div>
-                <h1 className="text-xl md:text-2xl font-bold text-slate-700">Holter Cleaning</h1>
-                <p className="text-sm text-gray-600 hidden md:block">Professional Window Cleaning</p>
-              </div>
+        <div className="grid grid-cols-3 items-center h-16 md:h-20">
+          {/* Left Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8 justify-start">
+            <Link href="/" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              HOME
             </Link>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-primary-500 hover:text-accent-500 font-medium transition-colors">
-              Home
+            <Link href="#services" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              SERVICES
             </Link>
-            <Link href="#services" className="text-primary-500 hover:text-accent-500 font-medium transition-colors">
-              Services
-            </Link>
-            <Link href="#about" className="text-primary-500 hover:text-accent-500 font-medium transition-colors">
-              About
-            </Link>
-            <Link href="#testimonials" className="text-primary-500 hover:text-accent-500 font-medium transition-colors">
-              Reviews
-            </Link>
-            <Link href="#contact" className="text-primary-500 hover:text-accent-500 font-medium transition-colors">
-              Contact
+            <Link href="#about" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              ABOUT US
             </Link>
           </nav>
 
-          {/* Phone Number & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-primary-500">
-              <FaPhone className="text-sm" />
-              <span className="font-semibold">(212) 555-CLEAN</span>
-            </div>
-            <Link href="#contact" className="btn-primary">
-              Free Estimate
+          {/* Center Logo - Like Pink's */}
+          <div className="flex justify-center">
+            <Link href="/" className="flex items-center">
+              <div className="text-center">
+                <h1 className="retro-headline text-2xl md:text-3xl text-primary-500">
+                  HOLTER CLEANING
+                </h1>
+              </div>
             </Link>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+          {/* Right Navigation */}
+          <div className="hidden lg:flex items-center space-x-8 justify-end">
+            <Link href="/blog" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              BLOG
+            </Link>
+            <Link href="#contact" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              CONTACT
+            </Link>
+          </div>
+
+          {/* Mobile: Show logo on left, menu button on right */}
+          <div className="lg:hidden flex justify-between items-center col-span-3">
+            <Link href="/" className="flex items-center">
+              <h1 className="retro-headline text-lg text-primary-500">
+                HOLTER CLEANING
+              </h1>
+            </Link>
             <button
               onClick={toggleMenu}
-              className="text-primary-500 hover:text-accent-500 focus:outline-none"
+              className="text-primary-500 hover:text-primary-700 focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <Link
-                href="/"
-                className="text-primary-500 hover:text-accent-500 block px-3 py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link
-                href="#services"
-                className="text-primary-500 hover:text-accent-500 block px-3 py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="#about"
-                className="text-primary-500 hover:text-accent-500 block px-3 py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="#testimonials"
-                className="text-primary-500 hover:text-accent-500 block px-3 py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Reviews
-              </Link>
-              <Link
-                href="#contact"
-                className="text-primary-500 hover:text-accent-500 block px-3 py-2 font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <div className="px-3 py-2">
-                <div className="flex items-center space-x-2 text-primary-500 mb-3">
-                  <FaPhone className="text-sm" />
-                  <span className="font-semibold">(212) 555-CLEAN</span>
-                </div>
-                <Link href="#contact" className="btn-primary block text-center">
-                  Free Estimate
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="lg:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream-200 border-t-2 border-slate-700">
+            <Link
+              href="/"
+              className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              HOME
+            </Link>
+            <Link
+              href="#services"
+              className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              SERVICES
+            </Link>
+            <Link
+              href="#about"
+              className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              ABOUT US
+            </Link>
+            <Link
+              href="/blog"
+              className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              BLOG
+            </Link>
+            <Link
+              href="#contact"
+              className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              CONTACT
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
