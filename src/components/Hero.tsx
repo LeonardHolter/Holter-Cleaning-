@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useMemo } from 'react'
 import Image from 'next/image'
-import { FaStar, FaCheckCircle, FaCalculator } from 'react-icons/fa'
+import { FaCheckCircle, FaCalculator } from 'react-icons/fa'
 
 const Hero = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ const Hero = () => {
   const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null)
   const [showQuote, setShowQuote] = useState(false)
 
-  const services = [
+  const services = useMemo(() => [
     { value: 'restaurant', label: 'Restaurant Cleaning', baseRate: 0.15 },
     { value: 'kitchen', label: 'Kitchen Cleaning', baseRate: 0.20 },
     { value: 'bar', label: 'Bar Cleaning', baseRate: 0.12 },
@@ -30,31 +30,24 @@ const Hero = () => {
     { value: 'hotel-fb', label: 'Hotel Food & Beverage Outlet', baseRate: 0.16 },
     { value: 'opening', label: 'Restaurant Opening Cleaning', baseRate: 0.35 },
     { value: 'exterior', label: 'Exterior Cleaning', baseRate: 0.22 }
-  ]
+  ], [])
 
-  const frequencies = [
+  const frequencies = useMemo(() => [
     { value: 'one-time', label: 'One-Time Service', discount: 0 },
     { value: 'weekly', label: 'Weekly', discount: 0.15 },
     { value: 'bi-weekly', label: 'Bi-Weekly', discount: 0.10 },
     { value: 'monthly', label: 'Monthly', discount: 0.05 }
-  ]
+  ], [])
 
-  const additionalOptions = [
+  const additionalOptions = useMemo(() => [
     { value: 'deep-clean', label: 'Deep Clean', price: 150 },
     { value: 'sanitization', label: 'Sanitization Service', price: 100 },
     { value: 'window-cleaning', label: 'Window Cleaning', price: 200 },
     { value: 'floor-waxing', label: 'Floor Waxing', price: 250 },
     { value: 'carpet-cleaning', label: 'Carpet Cleaning', price: 180 }
-  ]
+  ], [])
 
-  // Calculate price whenever relevant fields change
-  useEffect(() => {
-    if (formData.serviceType && formData.squareFootage) {
-      calculatePrice()
-    }
-  }, [formData.serviceType, formData.squareFootage, formData.frequency, formData.additionalServices])
-
-  const calculatePrice = () => {
+  const calculatePrice = useCallback(() => {
     const service = services.find(s => s.value === formData.serviceType)
     const frequency = frequencies.find(f => f.value === formData.frequency)
     const sqft = parseInt(formData.squareFootage) || 0
@@ -88,7 +81,14 @@ const Hero = () => {
 
     const totalPrice = basePrice + additionalCost
     setCalculatedPrice(Math.round(totalPrice))
-  }
+  }, [formData.serviceType, formData.squareFootage, formData.frequency, formData.additionalServices, services, frequencies, additionalOptions])
+
+  // Calculate price whenever relevant fields change
+  useEffect(() => {
+    if (formData.serviceType && formData.squareFootage) {
+      calculatePrice()
+    }
+  }, [formData.serviceType, formData.squareFootage, formData.frequency, formData.additionalServices, calculatePrice])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -182,7 +182,7 @@ const Hero = () => {
               <h2 className="retro-headline text-2xl md:text-3xl text-primary-500 mb-2">
                 Get Your Free Quote
               </h2>
-              <p className="text-slate-600">Fill out the form and we'll get back to you shortly</p>
+              <p className="text-slate-600">Fill out the form and we&apos;ll get back to you shortly</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -399,7 +399,7 @@ const Hero = () => {
                 <div id="calculated-quote" className="bg-green-100 border-2 border-green-500 rounded-lg p-4 animate-fade-in">
                   <h3 className="font-bold text-green-800 mb-2">Quote Request Sent! ✓</h3>
                   <p className="text-sm text-green-700">
-                    Thank you! We've received your quote request for <strong>${calculatedPrice?.toLocaleString()}</strong>. 
+                    Thank you! We&apos;ve received your quote request for <strong>${calculatedPrice?.toLocaleString()}</strong>. 
                     Our team will contact you shortly at {formData.email} or {formData.phoneNumber} to confirm details.
                   </p>
                 </div>

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '@/components/Header'
-import { FaCheckCircle, FaAward, FaClock, FaUsers, FaShieldAlt, FaLeaf, FaStar, FaHandshake, FaPhone } from 'react-icons/fa'
+import { FaCheckCircle, FaAward, FaShieldAlt, FaLeaf, FaStar, FaHandshake, FaPhone } from 'react-icons/fa'
 
 export default function About() {
   const values = [
@@ -88,19 +88,19 @@ export default function About() {
                 <div className="space-y-4 text-slate-600 leading-relaxed">
                   <p className="text-lg">
                     Holter Cleaning was founded on a simple but powerful belief: world-class 
-                    service shouldn't come with an inflated price tag. We saw too many businesses 
+                    service shouldn&apos;t come with an inflated price tag. We saw too many businesses 
                     settling for mediocre cleaning or paying premium prices for inconsistent results.
                   </p>
                   <p>
-                    Starting with window cleaning services in Manhattan, we've grown into a 
+                    Starting with window cleaning services in Manhattan, we&apos;ve grown into a 
                     comprehensive commercial cleaning company serving restaurants, hotels, theaters, 
-                    and businesses across New York City. Our growth hasn't been through marketing 
-                    gimmicks—it's been through word-of-mouth recommendations from satisfied clients 
+                    and businesses across New York City. Our growth hasn&apos;t been through marketing 
+                    gimmicks—it&apos;s been through word-of-mouth recommendations from satisfied clients 
                     who trust us with their spaces.
                   </p>
                   <p>
-                    Today, we're proud to be the cleaning partner of choice for some of NYC's 
-                    most respected establishments. But we've never lost sight of what got us here: 
+                    Today, we&apos;re proud to be the cleaning partner of choice for some of NYC&apos;s 
+                    most respected establishments. But we&apos;ve never lost sight of what got us here: 
                     treating every property with respect, completing every job right, and building 
                     relationships that last.
                   </p>
@@ -177,7 +177,7 @@ export default function About() {
                       <h3 className="font-bold text-slate-800 mb-2">Experienced Professionals</h3>
                       <p className="text-slate-600">
                         Our team members are thoroughly trained, background-checked, and experts in their craft. 
-                        We don't send rookies to your business.
+                        We don&apos;t send rookies to your business.
                       </p>
                     </div>
                   </div>
@@ -221,7 +221,7 @@ export default function About() {
                       <h3 className="font-bold text-slate-800 mb-2">Transparent Pricing</h3>
                       <p className="text-slate-600">
                         No hidden fees, no surprise charges. You get a detailed quote upfront, 
-                        and that's what you pay.
+                        and that&apos;s what you pay.
                       </p>
                     </div>
                   </div>
@@ -231,7 +231,7 @@ export default function About() {
                     <div>
                       <h3 className="font-bold text-slate-800 mb-2">Satisfaction Guaranteed</h3>
                       <p className="text-slate-600">
-                        If you're not completely satisfied with our work, we'll come back and 
+                        If you&apos;re not completely satisfied with our work, we&apos;ll come back and 
                         make it right—no questions asked.
                       </p>
                     </div>
@@ -278,8 +278,8 @@ export default function About() {
                     </h3>
                   </div>
                   <blockquote className="text-slate-600 italic mb-4">
-                    "Holter Cleaning has been our partner for 3 years. Their attention to detail 
-                    and professionalism is unmatched. Our restaurant has never looked better."
+                    &ldquo;Holter Cleaning has been our partner for 3 years. Their attention to detail 
+                    and professionalism is unmatched. Our restaurant has never looked better.&rdquo;
                   </blockquote>
                   <p className="text-slate-700 font-semibold">— Restaurant Owner, Manhattan</p>
                 </div>
