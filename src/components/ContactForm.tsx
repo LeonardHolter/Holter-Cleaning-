@@ -61,7 +61,7 @@ const ContactForm = () => {
                 Last name<span className="text-red-500">*</span>
               </label>
               <input
-                type="text"
+                type="text" 
                 id="lastName"
                 name="lastName"
                 value={formData.lastName}

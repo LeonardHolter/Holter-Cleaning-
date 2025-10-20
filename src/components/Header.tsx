@@ -14,19 +14,19 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-3 items-center h-16 md:h-20">
           {/* Left Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8 justify-start">
+          <nav className="hidden lg:flex items-center space-x-6 justify-start">
             <Link href="/" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
               HOME
             </Link>
-            <Link href="#services" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+            <Link href="/#services" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
               SERVICES
             </Link>
-            <Link href="#about" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+            <Link href="/about" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
               ABOUT US
             </Link>
           </nav>
 
-          {/* Center Logo - Like Pink's */}
+          {/* Center Logo */}
           <div className="flex justify-center">
             <Link href="/" className="flex items-center">
               <div className="text-center">
@@ -37,13 +37,17 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Right Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 justify-end">
-            <Link href="/blog" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
-              BLOG
-            </Link>
-            <Link href="#contact" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
-              CONTACT
+          {/* Right Navigation with Phone */}
+          <div className="hidden lg:flex items-center space-x-6 justify-end">
+            <a 
+              href="tel:9296261703" 
+              className="flex items-center gap-2 text-slate-700 hover:text-primary-500 transition-colors font-bold"
+            >
+              <FaPhone className="text-primary-500" />
+              <span className="text-sm">(929) 626-1703</span>
+            </a>
+            <Link href="#quote-form" className="retro-subheading text-slate-700 hover:text-primary-500 text-sm transition-colors">
+              GET QUOTE
             </Link>
           </div>
 
@@ -69,6 +73,16 @@ const Header = () => {
       {isMenuOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-cream-200 border-t-2 border-slate-700">
+            {/* Phone Number - Mobile */}
+            <a
+              href="tel:9296261703"
+              className="flex items-center gap-2 px-3 py-3 bg-primary-500 rounded-lg font-bold text-slate-800 hover:bg-primary-600 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <FaPhone />
+              <span>(929) 626-1703</span>
+            </a>
+            
             <Link
               href="/"
               className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
@@ -77,14 +91,14 @@ const Header = () => {
               HOME
             </Link>
             <Link
-              href="#services"
+              href="/#services"
               className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               SERVICES
             </Link>
             <Link
-              href="#about"
+              href="/about"
               className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -98,11 +112,11 @@ const Header = () => {
               BLOG
             </Link>
             <Link
-              href="#contact"
+              href="#quote-form"
               className="retro-subheading text-primary-500 hover:text-primary-700 block px-3 py-2 text-sm"
               onClick={() => setIsMenuOpen(false)}
             >
-              CONTACT
+              GET QUOTE
             </Link>
           </div>
         </div>
